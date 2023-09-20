@@ -58,19 +58,19 @@ int isCommandChained(data_t *data, char *buffer, size_t *position)
 
 	if (buffer[index] == '|' && buffer[index + 1] == '|')
 	{
-		buffer[index] = '\0';
+		buffer[index] = 0;
 		index++;
 		data->cmdBufType = OR_COMMAND;
 	}
 	else if (buffer[index] == '&' && buffer[index + 1] == '&')
 	{
-		buffer[index] = '\0';
+		buffer[index] = 0;
 		index++;
 		data->cmdBufType = AND_COMMAND;
 	}
 	else if (buffer[index] == ';')
 	{
-		buffer[index] = '\0';
+		buffer[index] = 0;
 		data->cmdBufType = CHAIN_COMMAND;
 	}
 	else
