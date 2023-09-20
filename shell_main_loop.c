@@ -35,7 +35,7 @@ int runShell(data_t *data, char **argv)
 			putChar('\n');
 		freeShellData(data, 0);
 	}
-	savehistoryToFile(data);
+	saveHistoryToFile(data);
 	freeShellData(data, 1);
 	if (!handleInteractive(data) && data->execStat)
 		exit(data->execStat);
@@ -114,7 +114,7 @@ void locateAndExecCmd(data_t *data)
 	if (!num)
 		return;
 
-	p = findCmdinPath(data, getEnvironVar(data, "PATH="), data->argv[0]);
+	p = findCmdInPath(data, getEnvironVar(data, "PATH="), data->argv[0]);
 	if (p)
 	{
 		data->commandPath = p;
